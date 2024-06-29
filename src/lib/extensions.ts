@@ -8,12 +8,11 @@ export const sendData = (action: string, data = {}) =>
         ID,
         {
           action,
-          data
+          data,
         },
         (res) => {
           resolve(res);
-        }
+        },
       );
-    } else resolve("Chrome not found");
+    } else resolve('Chrome not found');
   });
-
