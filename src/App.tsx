@@ -12,11 +12,12 @@ import {
 import { Sider } from './features/layout/components';
 
 const Home = lazy(() => import('./pages/Home'));
+const Settings = lazy(() => import('./pages/Settings'));
 
 const AppLayout = () => (
   <Suspense>
     <div
-      className="grid grid-cols-7 font-mono"
+      className="grid grid-cols-8 font-mono"
       style={{
         height: '100vh',
         width: '100vw',
@@ -26,7 +27,7 @@ const AppLayout = () => (
       <div className="col-span-1">
         <Sider />
       </div>
-      <div className="col-span-6">
+      <div className="col-span-7">
         <Outlet />
       </div>
     </div>
@@ -38,6 +39,8 @@ function App() {
     createRoutesFromElements(
       <Route element={<AppLayout />}>
         <Route path="/" element={<Home />} />
+        <Route path="/home" element={<Home />} />
+        <Route path="/settings" element={<Settings />} />
       </Route>,
     ),
     {

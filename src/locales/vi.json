@@ -1,3 +1,7 @@
 {
-  "appName": "HSR Simulator"
+  "appName": "HSR Simulator",
+  "pages": {
+    "home": "Trang chủ",
+    "settings": "Cài đặt"
+  }
 }

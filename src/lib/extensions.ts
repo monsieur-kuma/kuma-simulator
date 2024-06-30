@@ -1,5 +1,5 @@
 /* global chrome */
-const ID = 'jnjifnfegodjnliblglcbmmldgcienei';
+const ID = 'fpgihebneghedopamfmcofopolekgnoc';
 
 export const sendData = (action: string, data = {}) =>
   new Promise((resolve) => {
