@@ -1,9 +1,9 @@
 {
-  "name": "hsr-simulator",
+  "name": "kuma-simulator",
   "private": true,
   "version": "0.0.0",
   "type": "module",
-  "homepage": "https://hoyobot-project.github.io/HSR-Simulator/",
+  "homepage": "https://monsieur-kuma.github.io/kuma-simulator/",
   "scripts": {
     "dev": "REACT_APP_STAGE=development vite",
     "build": "tsc && vite build",
@@ -21,7 +21,7 @@
     "i18next-browser-languagedetector": "^8.0.0",
     "less": "^4.2.0",
     "lucide-react": "^0.399.0",
-    "michos_api": "^1.0.1",
+    "michos_api": "1.0.3",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-i18next": "^14.1.2",
