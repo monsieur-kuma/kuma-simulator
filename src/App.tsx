@@ -9,11 +9,27 @@ import {
   RouterProvider,
 } from 'react-router-dom';
 
+import { Sider } from './features/layout/components';
+
 const Home = lazy(() => import('./pages/Home'));
 
 const AppLayout = () => (
   <Suspense>
-    <Outlet />
+    <div
+      className="grid grid-cols-7 font-mono"
+      style={{
+        height: '100vh',
+        width: '100vw',
+        padding: '0.5rem',
+      }}
+    >
+      <div className="col-span-1">
+        <Sider />
+      </div>
+      <div className="col-span-6">
+        <Outlet />
+      </div>
+    </div>
   </Suspense>
 );
 

@@ -8,8 +8,12 @@ const Home = () => {
   return (
     <div>
       <h1>Home</h1>
-      <p>Welcome to the home page! {t(translations.appName)}</p>
+      <span className="box-decoration-clone bg-gradient-to-r from-indigo-600 to-pink-500 text-white px-2 ...">
+        Welcome to the home page! {t(translations.appName)}
+        Xin chào các bạn tôi là Hà
+      </span>
       <Button>Click me</Button>
+      <i className="ri-admin-line"></i>
     </div>
   );
 };
