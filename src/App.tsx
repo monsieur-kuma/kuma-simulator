@@ -47,7 +47,7 @@ function App() {
       basename:
         import.meta.env.REACT_APP_STAGE === 'development'
           ? ''
-          : '/rescue-station',
+          : '/kuma-simulator',
     },
   );
 
