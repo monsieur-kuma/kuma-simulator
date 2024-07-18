@@ -54,7 +54,6 @@ const Home = () => {
 
   return (
     <div>
-      <h1>{t(translations.pages.home)}</h1>
       <div className="flex items-center m-3">
         <b>{t(translations.gameInAccount)}</b>
         <Button className="ml-5" size="sm" onClick={getGames}>
