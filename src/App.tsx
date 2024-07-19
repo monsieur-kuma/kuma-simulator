@@ -9,7 +9,8 @@ import {
   RouterProvider,
 } from 'react-router-dom';
 
-import { Sider } from './features/layout/components';
+import { ScrollArea } from '@/components/ui/scroll-area';
+import { Sider } from '@/features/layout/components';
 
 const Home = lazy(() => import('./pages/Home'));
 const Settings = lazy(() => import('./pages/Settings'));
@@ -27,9 +28,9 @@ const AppLayout = () => (
       <div className="col-span-1">
         <Sider />
       </div>
-      <div className="col-span-7">
+      <ScrollArea className="h-full col-span-7">
         <Outlet />
-      </div>
+      </ScrollArea>
     </div>
   </Suspense>
 );

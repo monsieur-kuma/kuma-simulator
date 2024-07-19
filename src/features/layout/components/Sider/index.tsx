@@ -16,7 +16,7 @@ const Sider = () => {
   const activeKey = useMemo(() => {
     const path = location.pathname;
     const key = path.split('/')[1];
-    return key;
+    return key || 'home';
   }, [location.pathname]);
 
   const siders = [

@@ -3,7 +3,6 @@ import { useEffect, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
-import { Button } from '@/components/ui/button';
 import {
   Card,
   CardContent,
@@ -11,6 +10,12 @@ import {
   CardHeader,
   CardTitle,
 } from '@/components/ui/card';
+import {
+  Tooltip,
+  TooltipContent,
+  TooltipProvider,
+  TooltipTrigger,
+} from '@/components/ui/tooltip';
 import Waiting from '@/components/Waiting';
 import { sendData } from '@/lib/extensions';
 import { translations } from '@/locales/translations';
@@ -28,8 +33,6 @@ const Home = () => {
       setCookie(response.cookies);
     });
   }, []);
-
-  console.log('cookies', cookies);
 
   const getGames = async () => {
     try {
@@ -56,17 +59,22 @@ const Home = () => {
     <div>
       <div className="flex items-center m-3">
         <b>{t(translations.gameInAccount)}</b>
-        <Button className="ml-5" size="sm" onClick={getGames}>
-          {t(translations.actions.update)}
-        </Button>
+        <TooltipProvider>
+          <Tooltip>
+            <TooltipTrigger>
+              <i className="ri-loop-left-line ml-2" onClick={getGames}></i>
+            </TooltipTrigger>
+            <TooltipContent>{t(translations.actions.update)}</TooltipContent>
+          </Tooltip>
+        </TooltipProvider>
       </div>
       {loading ? <Waiting /> : null}
       <div className="grid grid-cols-3">
         {games.map((game) => (
           <Card
             key={game.game_id}
-            className="cursor-pointer m-3 text-sm"
-            onClick={() => window.open(game.url)}
+            className="m-3 text-sm"
+            onClick={() => console.log('show game record')}
           >
             <CardHeader>
               <div className="flex">
@@ -76,8 +84,23 @@ const Home = () => {
                     <AvatarFallback>{game.game_name}</AvatarFallback>
                   </Avatar>
                 </div>
-                <div className="text-start">
-                  <CardTitle>{game.game_name}</CardTitle>
+                <div className="text-start w-full">
+                  <CardTitle className="flex justify-between">
+                    {game.game_name}
+                    <TooltipProvider>
+                      <Tooltip>
+                        <TooltipTrigger>
+                          <i
+                            className="ri-external-link-line cursor-pointer"
+                            onClick={() => window.open(game.url)}
+                          ></i>
+                        </TooltipTrigger>
+                        <TooltipContent>
+                          {t(translations.battleChronicle)}
+                        </TooltipContent>
+                      </Tooltip>
+                    </TooltipProvider>
+                  </CardTitle>
                   <CardDescription>
                     {game.nickname}: {game.level} ({game.region_name})
                   </CardDescription>
