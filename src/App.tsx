@@ -44,12 +44,6 @@ function App() {
         <Route path="/settings" element={<Settings />} />
       </Route>,
     ),
-    {
-      basename:
-        import.meta.env.REACT_APP_STAGE === 'development'
-          ? ''
-          : '/kuma-simulator',
-    },
   );
 
   return <RouterProvider router={router} />;
